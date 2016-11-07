@@ -51,3 +51,6 @@ gem 'minitest-reporters'
 gem 'mini_backtrace'
 gem 'guard'
 gem 'guard-minitest'
+
+gem 'bootstrap-sass'
+gem 'rails-controller-testing'
