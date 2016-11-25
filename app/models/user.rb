@@ -11,14 +11,14 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   #return hashed value from input string
-  def User.digest(string)
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
                 BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
   #create random token
-  def User.new_token
+  def self.new_token
     SecureRandom.urlsafe_base64
   end
 
