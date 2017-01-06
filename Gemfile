@@ -65,3 +65,6 @@ gem 'bcrypt'
 # make fake user
 gem 'faker'
 
+# paginate
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
