@@ -56,4 +56,18 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal name, @user.name
     assert_equal email, @user.email
   end
+  
+  # exercise 10.1
+  test 'should redirect to url of before accessing with friendly forwarding' do
+    get edit_user_path(@user)
+    assert_equal edit_user_url(@user), session[:forwarding_url]
+  end
+  
+  test 'should redirect to root when user login after friendly forwarding' do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_url(@user)
+    log_in_as(@user)
+    assert_redirected_to @user
+  end
 end
