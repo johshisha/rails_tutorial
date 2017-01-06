@@ -61,3 +61,7 @@ gem 'bootstrap-sass'
 gem 'rails-controller-testing'
 
 gem 'bcrypt'
+
+# make fake user
+gem 'faker'
+
