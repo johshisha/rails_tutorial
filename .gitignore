@@ -26,3 +26,6 @@ vendor/bundle
 
 # Ignore ctags
 .tags
+
+# Ignore uploaded images
+/public/uploads
