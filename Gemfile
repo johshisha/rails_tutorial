@@ -68,3 +68,8 @@ gem 'faker'
 # paginate
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+# image upload
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
