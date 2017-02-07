@@ -1,0 +1,15 @@
+one:
+  follower: johshisha
+  followed: lana
+
+two:
+  follower: johshisha
+  followed: malory
+
+three:
+  follower: lana
+  followed: johshisha
+
+four:
+  follower: johshisha2
+  followed: johshisha
