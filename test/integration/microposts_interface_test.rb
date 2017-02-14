@@ -32,7 +32,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
       delete micropost_path(first_micropost)
     end
     # access to another user's profile and confirm there are no delete link
-    get user_path(users(:johshisha2))
+    get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
   

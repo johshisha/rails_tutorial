@@ -31,6 +31,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     
     # account tab
     assert_select "a[href=?]", user_path(@user)
+    assert_select "a[href=?]", notifications_user_path(@user)
     assert_select "a[href=?]", edit_user_path(@user)
     assert_select "a[href=?]", logout_path
     

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersShowTest < ActionDispatch::IntegrationTest
   def setup
-    @activated = users(:johshisha2)
+    @activated = users(:archer)
     @non_activated = users(:lana)
   end
   

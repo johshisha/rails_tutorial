@@ -6,7 +6,7 @@ johshisha:
   activated: true
   activated_at: <%= Time.zone.now %>
 
-johshisha2:
+archer:
   name: Sdot Sdat
   email: sdot@example.com
   password_digest: <%= User.digest('password') %>
