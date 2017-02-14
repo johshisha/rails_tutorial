@@ -84,4 +84,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
+  test "should redirect notifications when not logged in" do
+    get notifications_user_path(@user)
+    assert_redirected_to login_url
+  end
+
 end

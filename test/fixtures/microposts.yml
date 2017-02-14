@@ -6,7 +6,7 @@ orange:
   user: johshisha
 
 tau_manifesto:
-  content: "Check out the @tauday site by @mhartl: http://tauday.com"
+  content: "Check out the tauday site by mhartl: http://tauday.com"
   created_at: <%= 3.years.ago %>
   user: johshisha
 
@@ -47,3 +47,12 @@ van:
   created_at: <%= 4.hours.ago %>
   user: lana
   
+reply:
+  content: "@johshisha reply test"
+  created_at: <%= 3.minutes.ago %>
+  user: lana
+
+in_sentence:
+  content: "FYI @johshisha"
+  created_at: <%= 10.days.ago %>
+  user: archer

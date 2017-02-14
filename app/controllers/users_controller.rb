@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers, :notifications]
+  before_action :correct_user, only: [:edit, :update, :notifications]
   before_action :admin_user, only: [:destroy]
   
   def index
@@ -47,16 +47,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
-  # === before_action ===
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-  
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-  
   def following
     @title = "Following"
     @user = User.find(params[:id])
@@ -71,6 +61,23 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  def notifications
+    @title = "Notifications"
+    @micropost = current_user.microposts.build
+    @feed_items = current_user.notification.paginate(page: params[:page])
+    render 'show_notifications'
+  end
+  
+  # === before_action ===
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+  
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
