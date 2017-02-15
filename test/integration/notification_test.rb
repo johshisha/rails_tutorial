@@ -8,7 +8,6 @@ class NotificationTest < ActionDispatch::IntegrationTest
   
   test "notifications page" do
     get notifications_user_path(@user)
-    p @user.notification
     assert_not @user.notification.empty?
     @user.notification.each do |micropost|
       assert_match micropost.content, response.body

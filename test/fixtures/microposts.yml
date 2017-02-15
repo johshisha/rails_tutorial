@@ -48,11 +48,11 @@ van:
   user: lana
   
 reply:
-  content: "@Satoshi Sanjo reply test"
+  content: "@johshisha reply test"
   created_at: <%= 3.minutes.ago %>
   user: lana
 
 in_sentence:
-  content: "FYI @Satoshi Sanjo"
+  content: "FYI @johshisha"
   created_at: <%= 10.days.ago %>
   user: archer

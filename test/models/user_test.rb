@@ -125,6 +125,12 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "notification should have right posts" do
-    
+    johshisha = users(:johshisha)
+    @user.save
+    # notifications
+    assert_difference "johshisha.notification.count", 2 do
+      @user.microposts.create!(content: "@johshisha Hi!")
+      @user.microposts.create!(content: "Hey @johshisha")
+    end
   end
 end

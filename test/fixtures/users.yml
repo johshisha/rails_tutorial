@@ -1,7 +1,7 @@
 johshisha:
   name: Satoshi Sanjo
   email: satoshi@example.com
-  userid: satoshi
+  userid: johshisha
   password_digest: <%= User.digest('password') %>
   admin: true
   activated: true

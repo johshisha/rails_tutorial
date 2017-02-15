@@ -83,7 +83,7 @@ class User < ApplicationRecord
   end
   
   def notification
-    Micropost.where("content LIKE '%@#{name}%'")
+    Micropost.where("content LIKE '%@#{userid}%'")
   end
   
   # follow other user
