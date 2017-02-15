@@ -1,6 +1,13 @@
 <% provide(:title, "Notifications") %>
 <div class="row">
-  <%= render 'shared/feed_aside' %>
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
   <div class="col-md-8">
     <h3>Notifications</h3>
     <%= render 'shared/feed' %>
