@@ -12,11 +12,12 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     patch user_path(@user), params: { user: {
                                           name: "",
                                           email: "foo@invalid",
+                                          userid: "",
                                           password: "foo",
                                           password_confirmation: "bar"
                                         }}
     assert_template 'users/edit'
-    assert_select "div.alert", "The form contains 4 errors", count: 1
+    assert_select "div.alert", "The form contains 5 errors", count: 1
   end
   
   test "successful edit" do
@@ -25,9 +26,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'users/edit'
     name = "Foo Bar"
     email = "foo@bar.com"
+    userid = "example"
     patch user_path(@user), params: { user: {
                                           name: name,
                                           email: email,
+                                          userid: userid,
                                           password: "",
                                           password_confirmation: ""
                                         }}
@@ -44,9 +47,11 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_user_url(@user)
     name = "Foo Bar"
     email = "foo@bar.com"
+    userid = "example"
     patch user_path(@user), params: { user: {
                                           name: name,
                                           email: email,
+                                          userid: userid,
                                           password: "",
                                           password_confirmation: ""
                                         }}

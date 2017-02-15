@@ -3,6 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
+            userid: "example",
             password: "foobar", password_confirmation: "foobar")
   end
 
@@ -19,6 +20,11 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "   "
     assert_not @user.valid?
   end
+  
+  test "userid should be present" do
+    @user.userid = "   "
+    assert_not @user.valid?
+  end
 
   test "name should not be too long" do
     @user.name = "a" * 51
@@ -27,6 +33,11 @@ class UserTest < ActiveSupport::TestCase
 
   test "email should not be too long" do
     @user.email = "a" * 244 + "@example.com"
+    assert_not @user.valid?
+  end
+  
+  test "userid should not be too log" do
+    @user.userid = "a"*19
     assert_not @user.valid?
   end
 
@@ -51,6 +62,13 @@ class UserTest < ActiveSupport::TestCase
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
+  end
+  
+  test "userid should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.userid = @user.userid.upcase
     @user.save
     assert_not duplicate_user.valid?
   end
@@ -104,5 +122,9 @@ class UserTest < ActiveSupport::TestCase
     archer.microposts.each do |post_unfollowing|
       assert_not johshisha.feed.include?(post_unfollowing)
     end
+  end
+  
+  test "notification should have right posts" do
+    
   end
 end

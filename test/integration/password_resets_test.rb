@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'pry'
 
 class PasswordResetsTest < ActionDispatch::IntegrationTest
   def setup

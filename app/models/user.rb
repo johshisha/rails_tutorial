@@ -15,7 +15,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
         format: { with: VALID_EMAIL_REGEX },
         uniqueness: { case_sensitive: false }
-
+  validates :userid, presence: true, length: { maximum: 18},
+        uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
@@ -104,6 +105,10 @@ class User < ApplicationRecord
     # downcase email
     def downcase_email
       self.email = email.downcase 
+    end
+    
+    def downcase_userid
+      self.userid = userid.downcase
     end
     
     # create and insert activation digest

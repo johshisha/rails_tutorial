@@ -11,6 +11,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_no_difference "User.count" do
       post users_path, user: { name: "",
                 email: "user@invalid",
+                userid: "  ",
                 password: "foo",
                 password_confirmation: "bar" }
     end
@@ -25,6 +26,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post users_path, params: { 
                         user: { name: "Rails Tutorial",
                                 email: "example@railstutorial.org",
+                                userid: "example",
                                 password: "tutorial",
                                 password_confirmation: "tutorial" 
                               } }
